@@ -1,0 +1,413 @@
+\documentclass[12pt]{article}
+\usepackage{evan}
+\title{2024 POSN 2nd Camp Solutions - NU}
+\author{Anakawee Chujinda}
+\date{}
+\linespread{1.3}
+\setlength\parindent{0pt} 
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{asymptote}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\newtcolorbox{boxH}{
+    colback = green!5!white, 
+    colframe = green!75!black, 
+    boxrule = 0pt, 
+    leftrule = 6pt % left rule weight
+}
+\newtcolorbox{mybox}[1]
+{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#1}
+\begin{document}
+\maketitle 
+\hspace{11pt} This sheet contains problems and solutions of The 2024 2nd Camp Exam of Team NU for\\ 21st TMO. All solutions are made by Anakawee Chujinda, therefore, the solutions that are shown aren't the official solution. Corrections and comments are welcome.
+\newpage
+\section{Problems}
+\textbf{Problem 1.  } Find all functions $f : \mathbb{R} \rightarrow \mathbb{R}$  that satisfy the equation $$f(x^2-yf(z))=xf(x)-3zf(y)$$ for all real numbers $x,y$ and $z$.\\ \\ \\ 
+\textbf{Problem 2.  }Let $x,y,z$ and $w$ be real numbers that satisfies the following equations $$7x+y+z = 2\sqrt{9x-1}$$ $$7y+z+w = 2\sqrt{9y-1}$$ $$7z+w+x = 2\sqrt{9z-1}$$ $$7w+x+y = 2\sqrt{9w-1}$$ If $n = 45(x+y+z+w)$ and $m =\displaystyle \sum^{n}_{k=1} \frac{4k}{4k^{4}+1}$ \\ Then, what  the value of $m$. \\ \\ \\ 
+ \textbf{Problem 3.  }Determine all pairs of primes $(p,q)$ such that $$p^3-q^5=(p+q)^2$$ \\ \\
+ \textbf{Problem 4.  }Let $x$ and $y$ be non-negative integers such that $x$ and $y$  are the remainder of $$\displaystyle \sum^{66}_{m=0} (67-m)!m! \text{  and  }  (64!)^{64}+(65!)^{65}$$ are divided by $67$, respectively.  Prove that $2x-6y$ is a perfect square. \\ \\ \\ \\
+  \textbf{Problem 5.  } Let  $a,b,c,x,y$ and $z$ be positive real numbers such that $a+b+c=3 ,$ \\ $ xy = \dfrac{1}{27a} ,yz = \dfrac{1}{27b} $ and $zx = \dfrac{1}{27c}$ . Prove that 
+$$ (x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2 \geq \dfrac{27a^2b^2c^2}{(a^2+b^2+c^2)(a^2b^2+b^2c^2+c^2a^2)}$$ \\
+  \textbf{Problem 6.  }  Let $a,x,y$ and $z$ be positive real numbers such that $xyz=1$ and $a \geq 1$.  \\ Prove that  $$  \dfrac{2x^a}{y+z} + \dfrac{2y^a}{z+x} + \dfrac{2z^a}{x+y} \geq 3.$$ When does equality hold? \\ \\
+  \textbf{Problem 7.  } Let $S$ be the set of 2-digit positive integers such that $\abs{S} = 10$. Prove that there must be $2$ disjoint subsets of $S$ with the same sum of all elements in that subset.\\ \\
+ \textbf{Problem 8.  } Let $S=\{1,2,\dots,50\}$. Determine the number of all subsets of $S$ such that its sum of all element(s) is at least 638. \\ \\
+ \textbf{Problem 9.  } Let $PQRS$ be a quadrilateral that has an incircle and $PQ\neq QR$. Its incircle touches sides $PQ,\text{ } QR,\text{ }  RS$ and $SP$ at $A,\text{ } B,\text{ }  C$ and $D,$ repectively. Lines $BA$ and $RP$ intersect at $T$. Let line $TR$ intersects $\overline{BC}$ at $M$. Place point $N$ on line $TB$ such that $\angle{BMN} = \angle{NMT}$. Lines  $CN$ and  $TM$ intersect at $K$, and lines $BK$ and $CD$ intersect at $H$. Prove that 
+\begin{enumerate}[label=(\alph*)]
+\item Points $C,\text{ } D$ and $T$ are colinear.
+\item $\overline{NM}$ is perpendicular with $\overline{HM}$.
+\end{enumerate} 
+ \textbf{Problem 10.  } Let $ABC$ be  a triangle with incenter and circumcenter $I$ and $O$, respectively and $R$ is the radius of its circumcircle. Prove that $$\dfrac{1}{AI} + \dfrac{1}{BI} + \dfrac{1}{CI} > \dfrac{2R}{R^2-OI^2}$$\\
+\textit {(1st Hint: Draw auxiliary lines, then use The Power of Point Theorem, The Law of Sines)}\\ 
+\textit {(2nd Hint: $\sin{\dfrac{A}{2}}+\sin{\dfrac{B}{2}}+\sin{\dfrac{C}{2}} > 1 \text{ where } A+B+C = 180^{\circ}$ can claim without a proof.)}
+
+\newpage
+\section{Solutions}
+
+\begin{mybox}{Problem 1}
+Find all functions $f : \mathbb{R} \rightarrow \mathbb{R}$  that satisfy the equation $$f(x^2-yf(z))=xf(x)-3zf(y)$$ for all real numbers $x,y$ and $z$.
+\end{mybox}
+\textbf{Answer.} The function $f(x)=3x$ and $f(x)=0$ are the solution.\\
+\textbf{Solution.} Define $P(x,y,z)$ as the assertion of $f(x^2-yf(z))=xf(x)-3zf(y)$. \\
+$P(0,0,0)$ : $f(0)=0$ \\ 
+$P(0,1,x)$ : $f(-f(x))=-3xf(1) \quad \forall x \in \mathbb{R}$. 
+\null\hfill (1)
+\\     We'll divide into 2 cases.\\
+\textbf{\emph{Case 1} : $f(1) \neq 0$.} We claim that $f$ is injective.\\
+\emph{Proof.} Consider in any 2 real numbers $p$ and $q$ such that $f(p)=f(q)$. Since $$-3pf(1)=f(-f(p))=f(-f(q))=-3qf(1)$$ and $f(1) \neq 0$. Therefore, $p=q$ implies that $f$ is injective as we claimed.\\
+$P(x,x,\dfrac{x}{3})$ gives $$f(x^2-xf(\dfrac{x}{3}))=0 \quad \forall x \in \mathbb{R}$$ Since $f$ is injective, then
+\begin{align*} 
+x^2-xf(\dfrac{x}{3}) 	&=0  &&\forall x \in \mathbb{R} \\
+x^2 								 & = xf(\dfrac{x}{3}) &&\forall x \in \mathbb{R}\\
+x 	&= f(\dfrac{x}{3})   &&\forall x \in \mathbb{R} - \{0\} \\
+3x &= f(x)  &&\forall x \in \mathbb{R} - \{0\}\\
+\end{align*}
+because of $f(0)=0$ thus $f(x)=3x \quad \forall x \in \mathbb{R}$ which is obviously satisfy the equation. \\ \\ \\ \\
+\textbf{\emph{Case 2} : $f(1) = 0$.} $P(0,x,1)$ gives
+\begin{align*} 
+f(0) 	&=-3f(x)  &&\forall x \in \mathbb{R} \\
+0&=f(x) &&\forall x \in \mathbb{R} 
+\end{align*}
+Thus, $f(x)=0 \quad \forall x \in \mathbb{R} $ which is obviously satisfy the equation.\\
+Hence 
+\begin{align*}
+f(x)=3x \quad& \forall x \in \mathbb{R} \\ 
+f(x)=0 \quad & \forall x \in \mathbb{R}
+\end{align*}
+are the solution, which is clearly work. \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 2}
+Let $x,y,z$ and $w$ be real numbers that satisfies the following equations $$7x+y+z = 2\sqrt{9x-1}$$ $$7y+z+w = 2\sqrt{9y-1}$$ $$7z+w+x = 2\sqrt{9z-1}$$ $$7w+x+y = 2\sqrt{9w-1}$$ If $n = 45(x+y+z+w)$ and $m =\displaystyle \sum^{n}_{k=1} \frac{4k}{4k^{4}+1}$ \\ Then, what  the value of $m$.
+\end{mybox}
+\textbf{Answer.} The value of $m$ is $\dfrac{3280}{3281}$.\\
+\textbf{Solution.} Adding all of equations gives that
+\begin{equation}9x+9y+9z+9w=2(\sqrt{9x-1}+\sqrt{9y-1}+\sqrt{9z-1}+\sqrt{9w-1}) \end{equation}
+We define $A=\sqrt{9x-1}$, $B=\sqrt{9y-1}$, $C=\sqrt{9z-1}$ and  $D=\sqrt{9z-1}$ thus \\
+$A^2+1=9x$, $B^2+1=9y$, $C^2+1=9z$ and $D^2+1=9w$. Then we substitute back in (1), we'll get that
+$$A^2+B^2+C^2+D^2+4=2(A+B+C+D)$$ 
+with some algebraic manipulation we'll know that
+$$(A-1)^2+(B-1)^2+(C-1)^2+(D-1)^2 = 0$$
+which is clearly that $(A,B,C,D)=(1,1,1,1)$ is the only solution of the equation.
+Hence $$9x-1=9y-1=9z-1=9w-1=1$$ Implies that $(x,y,z,w)=\left(\dfrac{2}{9},\dfrac{2}{9},\dfrac{2}{9},\dfrac{2}{9}\right)$ is the only solution of the equation.\\
+Thus, $n=45 \cdot \left(\dfrac{8}{9}\right)=40$. On the next step, we'll find the value of $m$ 
+\newpage
+From \emph{Sophie Germain's identity} and some algebraic manipulation, we'll get that 
+\begin{align*}
+\dfrac{4k}{4k^4+1} &=\dfrac{4k}{(2k^2+2k+1)(2k^2-2k+1)} \\
+&= \dfrac{(2k^2+2k+1)-(2k^2-2k+1)}{(2k^2+2k+1)(2k^2-2k+1)} \\
+&= \dfrac{1}{2k^2-2k+1} - \dfrac{1}{2k^2+2k+1}
+\end{align*}
+Thus
+\begin{align*}
+m &=\displaystyle \sum^{40}_{k=1} \frac{4k}{4k^4+1}\\
+&= \displaystyle \sum^{40}_{k=1} \left(\dfrac{1}{2k^2-2k+1} - \dfrac{1}{2k^2+2k+1}\right)\\
+&= \dfrac{1}{1} - \dfrac{1}{5} +\dfrac{1}{5} -\dfrac{1}{13} + \dots + \dfrac{1}{2965} - \dfrac{1}{3281}\\
+&= 1 - \dfrac{1}{3281}\\
+&= \dfrac{3280}{3281}
+\end{align*}
+as desired.\null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 3}
+Determine all pairs of primes $(p,q)$ such that $$p^3-q^5=(p+q)^2$$
+\end{mybox}
+\textbf{Answer.} $(p,q)=(7,3)$ is the only solution.\\
+\textbf{Solution.} It's clearly that $q<p$ (otherwise, $p^3 \leq q^5$ which is absurd.) thus, $\gcd(p,q)=1$ \\
+We consider the equation in modulo $q$, we'll get that $$p^3 \equiv p^2 \pmod q$$ 
+Since $p$ and $q$ are relatively prime implies that
+$$p \equiv 1 \pmod q$$ 
+Hence, there are some positive integer $k$ such that $p=kq+1$\\
+Again, we consider the equation in modulo $p$, we'll get that $$-q^5 \equiv q^2 \pmod p$$ 
+Similarly, we'll get $$q^3 \equiv -1 \pmod p$$ Hence, $p|(q^3+1)$ implies that $p|(q+1)$ or $p|(q^2-q+1)$\\
+If $p|(q+1)$, then $(kq+1)|(q+1)$ which means that $k=1$ since $kq+1 > q+1$ when $k \geq 2$\\
+Hence, $q+1 = p$ since $p \geq 3$, then $q$ is even $\therefore q=2$ and $p=3$ which is absurd.\\
+Therefore 
+\begin{align*}
+p&|(q^2-q+1) \\
+(kq+1)&|(q^2-q+1) \\
+ (kq+1)&|(q^2-q+1-kq-1)=(q^2-q-kq)
+\end{align*}
+Since $\gcd(kq+1,q)=1$
+\begin{align*}
+(kq+1)&|(q-1-k)
+\end{align*}
+\newpage
+If $k+1 > q$ then 
+\begin{align*}
+kq+1 &\leq \abs{q-1-k}=k+1-q\\
+ kq-k &\leq -q \\
+(q-1)^2 < k(q-1) & \leq -q
+\end{align*}
+which is absurd.\\
+If $k+1 < q$ then 
+\begin{align*}
+kq+1 &\leq \abs{q-1-k}=q-1-k\\
+ kq-q+k+2 &\leq 0 \\
+q(k-1)+(k+2) &\leq 0
+\end{align*}
+which is absurd. Therefore, $k+1=q$\\
+Since $p=kq+1 = (q-1)q+1 = q^2-q+1$ then we substitute $p$ in the equation and consider in modulo $q^2$, we'll get that 
+\begin{align*}
+(q-1)^3 &\equiv -1 \pmod {q^2}\\
+3q &\equiv 0 \pmod {q^2}
+\end{align*}
+Hence, $q^2 \vert 3q \Longleftrightarrow q \vert 3$ so $q=3$ and $p = 7$\\
+The solution of the equation is $(p,q)=(7,3)$. \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 4}
+Let $x$ and $y$ be non-negative integers such that $x$ and $y$  are the remainder of $$\displaystyle \sum^{66}_{m=0} (67-m)!m! \text{  and  }  (64!)^{64}+(65!)^{65}$$ are divided by $67$, respectively.  Prove that $2x-6y$ is a perfect square. 
+\end{mybox}
+\textbf{Solution.} Firstly, we'll consider the value of $(67-m)!$ where $0\leq m \leq 66$ in modulo $67$.\\ 
+Since 
+\begin{align*}
+(67-m)! &\equiv (67-m)(66-m)\cdots3\cdot2\cdot1 &&\pmod {67}\\
+&\equiv (-m)(-m-1)\cdots(-64)(-65)(-66) &&\pmod {67}\\
+&\equiv (-1)^{67-m}(m)(m+1)\cdots(64)(65)(66) &&\pmod {67}\\
+&\equiv (-1)^{67-m}\dfrac{66!}{(m-1)!} &&\pmod {67}
+\end{align*}
+Hence
+\begin{align*}
+x &\equiv \displaystyle \sum^{66}_{m=0} (67-m)!m! &&\pmod {67}\\
+&\equiv \displaystyle \sum^{66}_{m=0} (-1)^{67-m}\dfrac{66!}{(m-1)!}m! &&\pmod {67}\\
+&\equiv \displaystyle \sum^{66}_{m=0} (-1)^{67-m}\cdot66!\cdot m &&\pmod {67}\\
+&\equiv \displaystyle \sum^{66}_{m=0} (-1)^{68-m}\cdot m &&\pmod {67} &\null\hfill \text{(Wilson's Theorem)}\\
+&\equiv 0-1+2-3+4-\cdots-65+66 &&\pmod {67}\\
+&\equiv33 &&\pmod{67}
+\end{align*}
+then $x=33$. On the next step, we'll find the value of $y$.
+\newpage
+Wilson's Theorem is really important to find the value of $y$. Since
+\begin{align*}
+66! & \equiv -1 &&\pmod {67}\\
+65! \cdot 66 & \equiv -1 &&\pmod {67}\\
+65! \cdot (-1) & \equiv -1 &&\pmod {67}\\
+65!  & \equiv 1 &&\pmod {67}\\
+\end{align*}
+And 
+\begin{align*}
+65!  & \equiv 1 &&\pmod {67}\\
+64! \cdot 65 &\equiv -66 &&\pmod {67}\\
+64! \cdot (-2) &\equiv -66 &&\pmod {67}\\
+64!  &\equiv 33 &&\pmod {67}\\
+\end{align*}
+Hence $y \equiv 33^{64}+1 \pmod {67}$. From FLT, we'll get that $33^{66} \equiv 1 \pmod{67}$.\\
+Since $33^2 \equiv 17 \pmod{67}$ then $33^{64} \cdot 17 \equiv 1 \pmod {67}$ $\Longleftrightarrow 33^{64} \cdot 17 \equiv 68 \pmod {67}\\ \Longleftrightarrow 33^{64} \equiv 4 \pmod {67}$. Therefore, $y \equiv 5 \pmod{67}$ implies that $y=5$.\\
+Thus, $2x-6y = 66  - 30 = 36 = 6^2$ which is a perfect square. \null\hfill $\blacksquare$.
+\newpage
+\begin{mybox}{Problem 5}
+Let  $a,b,c,x,y$ and $z$ be positive real numbers such that $a+b+c=3 ,$ \\ $ xy = \dfrac{1}{27a} ,yz = \dfrac{1}{27b} $ and $zx = \dfrac{1}{27c}$ . Prove that 
+$$ (x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2 \geq \dfrac{27a^2b^2c^2}{(a^2+b^2+c^2)(a^2b^2+b^2c^2+c^2a^2)}$$ 
+\end{mybox}
+\textbf{Solution.} We'll divide the proof into 2 claims\\
+\emph{Claim 1.} $\left[(x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2\right]\left[{a^2}{b^2}+{b^2}{c^2}+{c^2}{a^2}\right] \geq (ab+bc+ca)^2$\\
+\emph{Proof.} From Cauchy-Schwarz Inequality,
+$$\left[(x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2\right]\left[{b^2}{c^2}+{c^2}{a^2}+{a^2}{b^2}\right]$$
+$$\geq (bc(x+y)+a^2bc+ca(y+z)+ab^2c+ab(z+x)+abc^2)^2 $$
+$$= (bc(x+y)+ca(y+z)+ab(z+x)+abc(a+b+c))^2 $$
+$$= (bc(x+y)+ca(y+z)+ab(z+x)+3abc)^2 $$
+$$= (bc(x+y+a)+ca(y+z+b)+ab(z+x+c))^2$$
+Since the AM-GM Inequality implies that 
+$$x+y+a \geq3 \displaystyle \sqrt[3]{xya} = 3\sqrt[3]{\dfrac{1}{27}} = 1 $$
+Similarly, $y+z+b \geq 1$ and $z+x+c \geq 1$, Therefore
+$$\left[(x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2\right]\left[{b^2}{c^2}+{c^2}{a^2}+{a^2}{b^2}\right]$$
+$$\geq (bc(x+y+a)+ca(y+z+b)+ab(z+x+c))^2$$
+$$\geq (bc+ca+ab)^2$$
+as desired.
+\newpage
+\emph{Claim 2.} $(ab+bc+ca)^2(a^2+b^2+c^2) \geq 27a^2b^2c^2$
+\\ \emph{Proof.} By The AM-GM Inequality,
+$$(ab+bc+ca)^2 \geq (3\sqrt[3]{a^2b^2c^2})^2 = 9\sqrt[3]{a^4b^4c^4} $$
+$$a^2+b^2+c^2 \geq 3\sqrt[3]{a^2b^2c^2}$$
+Multiplying both inequalities implies that $$(ab+bc+ca)^2(a^2+b^2+c^2) \geq 27\sqrt[3]{a^6b^6c^6} = 27a^2b^2c^2$$
+as desired.\\
+From Claim 2, we know that $$(ab+bc+ca)^2 \geq \dfrac{27a^2b^2c^2}{(a^2+b^2+c^2)}$$
+Combining with Claim 1 implies that 
+$$\left[(x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2\right]\left[{a^2}{b^2}+{b^2}{c^2}+{c^2}{a^2}\right] \geq \dfrac{27a^2b^2c^2}
+{(a^2+b^2+c^2)}$$
+$$(x+y+a^2)^2 + (y+z+b^2)^2 + (z+x+c^2)^2\geq  \dfrac{27a^2b^2c^2}{(a^2+b^2+c^2)({a^2}{b^2}+{b^2}{c^2}+{c^2}{a^2})}$$
+then we're done \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 6}
+ Let $a,x,y$ and $z$ be positive real numbers such that $xyz=1$ and $a \geq 1$.  \\ Prove that  $$  \dfrac{2x^a}{y+z} + \dfrac{2y^a}{z+x} + \dfrac{2z^a}{x+y} \geq 3.$$ When does equality hold?
+\end{mybox}
+\textbf{Solution.} Since the given inequality is symmetric in $(x,y,z)$. WLOG, we can assume that $x \geq y \geq z$ then, $x+y \geq x+z \geq y+z$  and $x^a \geq y^a \geq z^a$. From Chebyshev's Inequality,
+\begin{equation}\setcounter{equation}{1} 
+\dfrac{x^a}{y+z} + \dfrac{y^a}{z+x} + \dfrac{z^a}{x+y} \geq \left(\dfrac{x^a+y^a+z^a}{3}\right)\left(\dfrac{1}{y+z} + \dfrac{1}{z+x} + \dfrac{1}{x+y}\right)
+\end{equation}
+From Power-Mean Inequality 
+\begin{equation*} \sqrt[a]{\dfrac{x^a+y^a+z^a}{3}} \geq \dfrac{x+y+z}{3}
+ \end{equation*}
+Hence
+\begin{equation} \dfrac{x^a+y^a+z^a}{3} \geq \left(\dfrac{x+y+z}{3}\right)^a \end{equation}
+From Titu's Lemma
+\begin{equation} \dfrac{1}{y+z} + \dfrac{1}{z+x} + \dfrac{1}{x+y} \geq  \dfrac{9}{2x+2y+2z} \end{equation}
+Combining (2) and (3) into (1), we'll get that 
+$$\left(\dfrac{x^a+y^a+z^a}{3}\right)\left(\dfrac{1}{y+z} + \dfrac{1}{z+x} + \dfrac{1}{x+y}\right) \geq \left(\dfrac{x+y+z}{3}\right)^a\left(\dfrac{9}{2x+2y+2z}\right)$$
+Since
+\begin{align*}
+\left(\dfrac{x+y+z}{3}\right)^a\left(\dfrac{9}{2x+2y+2z}\right) 
+&= \dfrac{(x+y+z)^{a-1}}{3^a}\cdot\dfrac{9}{2}\\
+&\stackrel{\text{AM-GM}}{\geq} \dfrac{3^{a-1}}{3^a}\cdot\dfrac{9}{2}\\
+&= \dfrac{3}{2}
+\end{align*}
+Hence $$\left(\dfrac{x^a+y^a+z^a}{3}\right)\left(\dfrac{1}{y+z} + \dfrac{1}{z+x} + \dfrac{1}{x+y}\right) \geq \dfrac{3}{2}$$
+\newpage
+Since (1), we'll get that
+$$\dfrac{x^a}{y+z} + \dfrac{y^a}{z+x} + \dfrac{z^a}{x+y} \geq \dfrac{3}{2}$$
+Therefore
+$$\dfrac{2x^a}{y+z} + \dfrac{2y^a}{z+x} + \dfrac{2z^a}{x+y} \geq 3$$ as desired and equality holds when $(x,y,z,a)=(1,1,1,a)$ for any positive real number $a$ where $a \geq 1$.  \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 7}
+ Let $S$ be the set of 2-digit positive integers such that $\abs{S} = 10$. Prove that there must be $2$ disjoint subsets of $S$ with the same sum of all elements in that subset.
+\end{mybox}
+\textbf{Solution.} There are exactly $2^{10}=1024$ subsets of $S$ and we'll consider all possible sum of all elements in each subset. Since the highest possible sum of elements is 945 (which is $\{90,91,\dots,99\}$) and the lowest possible sum of non-empty subset is 10 (which is $\{10\}$). Moreover, 0 is possible in case of empty set thus, there are 936 possible sum of elements.\newline
+\newline
+From Pigeonhole Principle there must be $\ceil[\bigg]{\dfrac{1024}{936}}=2$ distinct subsets of $S$, called $B$ and $C$, which have the same sum of all elements. However, we don't know which $B$ and $C$ are disjoint or non-disjoint subsets. If $B$ and $C$ are disjoint, then we are done. But if $B$ and $C$ are non-disjoint, then let $B' = B - (B\cap C)$ and $C' = C - (B\cap C)$. It's clear that both $B'$ and $C'$ are disjoint and their sum of all elements are still the same. \newline
+Therefore, there must be 2 disjoint subsets of $S$ with the same sum of all elements. \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 8}
+Let $S=\{1,2,\dots,50\}$. Determine the number of all subsets of $S$ such that its sum of all element(s) is at least 638.
+\end{mybox}
+\textbf{Answer.} $2^{49}$\\
+\textbf{Solution.} Since there are exactly $2^{50}$ subsets of $S$, then we'll choose 2 subsets, called $A$ and $B$, for which $A$ and $B$ are disjoint but $A \cup B = S$, as a \emph{pair}. Hence there are $2^{49}$ pairs, we'll prove the following claim.
+\newline
+\emph{Claim.} For each pair, there is exactly 1 subset that its sum of all element is at least 638. \newline
+\emph{Proof.} We define $\operatorname{sum}(X)$ as the sum of all elements in $X$. For any $A$ and $B$ in a pair, \\ it's obviously that $$\operatorname{sum}(A) + \operatorname{sum}(B) = 1275$$
+Since 1275 is odd number, then $\operatorname{sum}(A) \neq \operatorname{sum}(B)$.\\
+If $\operatorname{sum}(A) > \operatorname{sum}(B)$, then $2\operatorname{sum}(A) > \operatorname{sum}(A) + \operatorname{sum}(B) = 1275$ $\therefore \operatorname{sum}(A) \geq 638$ and $\operatorname{sum}(B) \leq 637$ \newline
+If $\operatorname{sum}(B) > \operatorname{sum}(A)$, then, similarly with previous case  $\therefore \operatorname{sum}(B) \geq 638$ and $\operatorname{sum}(A) \leq 637$
+Therefore, we conclude that in each pair, there is exactly 1 subset that its sum of all element is at least 638. \\ \\
+From the Claim, the number of subsets of $S$ which its sum is at least $638$ is $2^{49}$.  \null\hfill $\blacksquare$
+\newpage
+\begin{mybox}{Problem 9}
+ Let $PQRS$ be a quadrilateral that has an incircle and $PQ\neq QR$. Its incircle touches sides $PQ,\text{ } QR,\text{ }  RS$ and $SP$ at $A,\text{ } B,\text{ }  C$ and $D,$ repectively. Lines $BA$ and $RP$ intersect at $T$. Let line $TR$ intersects $\overline{BC}$ at $M$. Place point $N$ on line $TB$ such that $\angle{BMN} = \angle{NMT}$. Lines  $CN$ and  $TM$ intersect at $K$, and lines $BK$ and $CD$ intersect at $H$. Prove that 
+\begin{enumerate}[label=(\alph*)]
+\item Points $C,\text{ } D$ and $T$ are colinear.
+\item $\overline{NM}$ is perpendicular with $\overline{HM}$.
+\end{enumerate} 
+\end{mybox}
+\textbf{Solution.} The figure that constructed from the problem are shown below.\\
+ \begin{center}
+    \begin{asy}
+          /* Geogebra to Asymptote conversion, documentation at artofproblemsolving.com/Wiki go to User:Azjps/geogebra */
+import graph; size(16cm); 
+real labelscalefactor = 0.5; /* changes label-to-point distance */
+pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */ 
+pen dotstyle = black; /* point style */ 
+real xmin = -1.408743890427573, xmax = 16.8618888282746, ymin = -3.981943214730975, ymax = 7.419313233754129;  /* image dimensions */
+pen qqwwtt = rgb(0,0.4,0.2); 
+ /* draw figures */
+draw(circle((4.63258,2.41581), 2.414566260316473), linewidth(2)); 
+draw((2.6217961151349103,4.17931753533439)--(1.4407953151107247,0), linewidth(2) + blue); 
+draw((1.4407953151107247,0)--(8.034611645527825,0.0025690275028446763), linewidth(2) + blue); 
+draw((8.034611645527825,0.0025690275028446763)--(6.056939949377308,5.657033690357821), linewidth(2) + blue); 
+draw((6.056939949377308,5.657033690357821)--(2.6217961151349103,4.17931753533439), linewidth(2) + blue); 
+draw((6.911763301205982,3.212963501505501)--(-0.1443298415089756,6.313772773465846), linewidth(2) + qqwwtt); 
+draw((8.034611645527825,0.0025690275028446763)--(-0.1443298415089756,6.313772773465846), linewidth(2) + qqwwtt); 
+draw((4.6335207430156595,0.0012439229457276186)--(-0.1443298415089756,6.313772773465846), linewidth(2) + linetype("4 4") + red); 
+draw((6.911763301205982,3.212963501505501)--(4.6335207430156595,0.0012439229457276186), linewidth(2) + qqwwtt); 
+draw((5.519504306360299,3.8247935203091634)--(5.837231078234277,1.698157202279446), linewidth(2) + qqwwtt); 
+draw((5.519504306360299,3.8247935203091634)--(4.6335207430156595,0.0012439229457276186), linewidth(2) + qqwwtt); 
+draw((6.911763301205982,3.212963501505501)--(3.601925323013837,1.3641948431603705), linewidth(2) + qqwwtt); 
+draw((3.601925323013837,1.3641948431603705)--(5.837231078234277,1.698157202279446), linewidth(2) + linetype("4 4") + green); 
+ /* dots and labels */
+dot((2.6217961151349103,4.17931753533439),dotstyle); 
+label("$P$", (2.6699482700137738,4.294701110842939), NE * labelscalefactor); 
+dot((1.4407953151107247,0),linewidth(4pt) + dotstyle); 
+label("$S$", (1.3700142188789584,-0.249105067894325), NE * labelscalefactor); 
+dot((8.034611645527825,0.0025690275028446763),dotstyle); 
+label("$R$", (7.988944479244302,-0.2729570688325783), NE * labelscalefactor); 
+dot((6.056939949377308,5.657033690357821),linewidth(4pt) + dotstyle); 
+label("$Q$", (6.104636405122276,5.749673168076394), NE * labelscalefactor); 
+dot((3.6784300248182946,4.6338559982424705),linewidth(4pt) + dotstyle); 
+label("$A$", (3.6240283075439135,4.75981512913888), NE * labelscalefactor); 
+dot((6.911763301205982,3.212963501505501),linewidth(4pt) + dotstyle); 
+label("$B$", (7.011012440775909,3.197509067683285), NE * labelscalefactor); 
+dot((4.6335207430156595,0.0012439229457276186),linewidth(4pt) + dotstyle); 
+label("$C$", (4.5542563441357995,-0.2729570688325783), NE * labelscalefactor); 
+dot((2.3090040802867375,3.0724112266112096),linewidth(4pt) + dotstyle); 
+label("$D$", (2.0736482465574366,2.970915058769878), NE * labelscalefactor); 
+dot((-0.1443298415089756,6.313772773465846),linewidth(4pt) + dotstyle); 
+label("$T$", (-0.2042178430457719,6.441381195285741), NE * labelscalefactor); 
+dot((5.837231078234277,1.698157202279446),linewidth(4pt) + dotstyle); 
+label("$M$", (5.782634392455854,1.4086089973142832), NE * labelscalefactor); 
+dot((5.519504306360299,3.8247935203091634),linewidth(4pt) + dotstyle); 
+label("$N$", (5.496410381196813,3.9488470972382657), NE * labelscalefactor); 
+dot((5.1496641515406925,2.228711794243028),linewidth(4pt) + dotstyle); 
+label("$K$", (5.150556367592137,1.9452790184249837), NE * labelscalefactor); 
+dot((3.601925323013837,1.3641948431603705),linewidth(4pt) + dotstyle); 
+label("$H$", (3.3855082981613784,1.1462369869934963), NE * labelscalefactor); 
+clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+ /* end of picture */
+    \end{asy}
+\end{center}
+\newpage
+We'll prove (a) first, since $B$, $A$ and $T$ are colinear, from Meneleus' Theorem 
+\begin{align*}
+\dfrac{QB}{BR} \cdot \dfrac{RT}{TP} \cdot \dfrac{PA}{AQ} &= 1 \\
+\dfrac{AQ}{RC} \cdot \dfrac{RT}{TP} \cdot \dfrac{PD}{AQ} &= 1 \qquad \null\hfill (AQ = QB \text{ and } PA = PD)\\
+\dfrac{RT}{TP} \cdot \dfrac{PD}{RC} &= 1 \\
+\dfrac{RT}{TP} \cdot \dfrac{PD}{DS} \cdot \dfrac{SC}{CR} &= 1 \qquad \null\hfill (\text{Since } SC = SD)
+\end{align*}
+By the Meneleus' Theorem, $C$, $D$ and $T$ are colinear as we want. \null\hfill $\blacksquare$
+\newline
+Next, we'll prove (b), by (a) we'll get that $\overline{BH}$, $\overline{TM}$ and $\overline{CN}$ are concurrent at $K$, then by Ceva's Theorem
+\begin{equation}\setcounter{equation}{1}
+\dfrac{BN}{NT} \cdot \dfrac{TH}{HC} \cdot \dfrac{CM}{MB} = 1 
+\end{equation}
+Since $\overline{MN}$ bisects $\angle{TMB}$, then from Angle Bisector Theorem
+\begin{equation*}
+\dfrac{BM}{TM}  = \dfrac{BN}{TN} 
+\end{equation*}
+\begin{equation}
+\dfrac{BN}{BM}  = \dfrac{TN}{TM} 
+\end{equation}
+apply (2) into (1) we'll get
+\begin{align*}
+\dfrac{TN}{TM} \cdot \dfrac{TH}{CH} \cdot \dfrac{CM}{TN} &= 1 \\
+\dfrac{TH}{CH} \cdot \dfrac{CM}{TM} &= 1 \\
+\dfrac{TH}{CH} &= \dfrac{TM}{CM}
+\end{align*}
+By the Angle Bisector Theorem, $\overline{MH}$ bisects $\angle{TMC}$.\\
+Hence $\angle{NMH}$ = $\dfrac{1}{2}\angle{TMC} + \dfrac{1}{2}\angle{TMB}$ = $\dfrac{1}{2}(180^{\circ}) = 90^{\circ}$ that means $\overline{NM}$ is perpendicular with $\overline{HM}$ as desired. \null\hfill $\blacksquare$
+\begin{boxH}
+\textbf{Remark.} This problem is exactly the same with Problem 9 of 19th TMO but its wording is changed and we have to prove both (a) and (b) while the original just asks to prove (b).
+\end{boxH}
+\newpage
+\begin{mybox}{Problem 10}
+Let $ABC$ be  a triangle with incenter and circumcenter $I$ and $O$, respectively and $R$ is the radius of its circumcircle. Prove that $$\dfrac{1}{AI} + \dfrac{1}{BI} + \dfrac{1}{CI} > \dfrac{2R}{R^2-OI^2}$$\\
+\textit {(1st Hint: Draw auxiliary lines, then use The Power of Point Theorem, The Law of Sines)}\\ 
+\textit {(2nd Hint: $\sin{\dfrac{A}{2}}+\sin{\dfrac{B}{2}}+\sin{\dfrac{C}{2}} > 1 \text{ where } A+B+C = 180^{\circ}$ can claim without a proof.)}
+\end{mybox}
+\textbf{Solution.} We define $a$, $b$ and $c$ is the length of side that opposite to the vertex $A$, $B$ and $C$, respectively. and also $\hat{A}$, $\hat{B}$ and $\hat{C}$ is the angle at vertex $A$, $B$ and $C$, respectively.\\
+We draw $I$ to perpendicular to all sides $\overline{AB}$, $\overline{BC}$ and $\overline{CA}$ at $D$, $E$ and $F$, respectively. Since $ID=IE=IF=r$ where $r$ is radius of its incircle, then consider at $\triangle{AID}$
+\begin{equation}\setcounter{equation}{1}
+\sin{\left(\dfrac{\hat{A}}{2}\right)}=\dfrac{r}{AI}
+\end{equation}
+Similarly,
+\begin{align}
+\sin{\left(\dfrac{\hat{B}}{2}\right)}&=\dfrac{r}{BI} \\
+\sin{\left(\dfrac{\hat{C}}{2}\right)}&=\dfrac{r}{CI}
+\end{align}
+Apply (1)+(2)+(3) and 2nd Hint, we'll get that
+$$\dfrac{r}{AI}+\dfrac{r}{BI}+\dfrac{r}{CI} = \sin{\left(\dfrac{\hat{A}}{2}\right)} + \sin{\left(\dfrac{\hat{B}}{2}\right)} + \sin{\left(\dfrac{\hat{C}}{2}\right)} > 1 $$
+Hence 
+$$ \dfrac{1}{AI}+\dfrac{1}{BI}+\dfrac{1}{CI}  > \dfrac{1}{r}$$
+\newpage
+From Euler's Theorem in Geometry (which can be prove by using 1st Hint)
+$$ {OI}^2 = R^2-2Rr$$
+$$ r = \dfrac{R^2-{OI}^2}{2R}$$
+Therefore, $$ \dfrac{1}{AI}+\dfrac{1}{BI}+\dfrac{1}{CI}  > \dfrac{2R}{R^2-{OI}^2}$$
+as desired. \null\hfill $\blacksquare$
+\begin{boxH}
+\textbf{Remark : Proving Euler's Theorem in Geometry} \\
+\emph{Proof.} We construct line $AI$ to intersect the circumcircle at $L \neq A$ and construct line $LO$ to intersect the circumcircle at $M \neq L$, since $\angle{BML} = \angle{BLA}$ implies that $\triangle{BML} \sim \triangle{AID}$, therefore, $\dfrac{ID}{BL} = \dfrac{AI}{ML}$. Since $ID =r$ and $ML = 2R$, then $$AI \cdot BL = 2Rr$$
+We construct $\overline{BI}$, since $\angle{LBI} = \dfrac{\hat{A}}{2}+\dfrac{\hat{B}}{2} = 90^{\circ} - \dfrac{\hat{C}}{2}$ and $\angle{BLI} = \hat{C}$, then $\angle{LBI} = \angle{LIB}$. Hence, $BL=LI$, then
+ $$AI \cdot LI = 2Rr$$
+We construct line ${OI}$ to intersect the circumcircle at $P$ and $Q$, by the Power of Point Theorem $$PI \cdot  QI = AI \cdot LI = 2Rr$$
+$$(R+OI)(R-OI) = 2Rr$$
+$${OI}^2 =R^2-2Rr$$
+then we are done.
+\end{boxH}
+\end{document} 
